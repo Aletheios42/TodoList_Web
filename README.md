@@ -1,23 +1,31 @@
-# **Commit: Signlas I**
+# **Commit: Componentes Reutilizables: User_IV**
 
-## Objetivo: Cambiar el estado a traves de señales
+deja el estado como en el commit USER_III, no vamos
+a trabajar con señales
 
-echale un ojo: https://angular.dev/guide/signals
+## Objetivo: Enseñar todos los usuarios
 
-- Importa la clase signals,
-- Trasforma la propiedad selectedUser en una señal
-- En el metodo onSelecUser() utiliza set, para asignar el nuevo valor aleatorio
-- el metodo imagePath, sera una funcion computed para actualizar la imagen
-  pista: imagePath = computed(() => 'assest/users/' + this.selectedUser().avatar);
-- Recuerda, selectedUser ahota es una señal para leerla como un string usa "()"
+en el componente user:
 
-El resto del proyecto no se hará con señales asi que para el siguiente commit,
-no se tenfra encuenta esta nueva actualizacion.
+- Limpia la clase de user borra todo, solo deja onSelectUser() y el getter de la imagen
+- importa @Input y marca la propiedad avatar, es un string.
+  pista: para indicar a angular, que la propiedad va a ser asignada fuera
+  del componente usar "!", no hace falta constructor, no obstante, vamos a elegir
+  utilizar
+- Haz lo propio con la propiedad nombre
 
-El alumno deberá volver a dejar el proyecto como esta en el commit User_III
+sustituye en el html de user, los nuevas formas de llamar a la imagen y al name,
+pero olvida uno de los nombres
+
+en app.component, importamos DUMMYUSERS, y lo asignamos a la propiedad users
+en el html, extiende la lista a 6 elementos, y bindea la propiedad \[avatar\],
+en la etiqueta \<li> \<app-user \[avatar]="user\[0\].avatar" y asi con todos \</li>
+
+a pesar de que en @Input ?, funciona utiliza este formato para tu proyecto:
+@Input({ required: true }) avatar!: string; ya que es mas seguro, para comprobarlo
+borra [name]="users[2].name" y prueba de las 2 maneras con "?" y con el required y la !
 
 ## VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Signals_I](./htmlOutput.png)
-  cada vez que clickas en el usuario deberia cambiar aleatoriamente
+  ![Componentes_Reutilizables](./htmlOutput.png)
