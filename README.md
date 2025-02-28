@@ -1,32 +1,25 @@
-# **Commit: SetUp**
+# **Commit: Header**
 
-## Objetivo: Copia el proyecto
+## Objetivo: Crea un componente Header
 
-- Descargar de github:
+copia los archivos:
+
+- header.component.css
+- styles.css
+- index.html
+- task-managment-logo.png
+
+crea un header que consista en:
+una etiqueta header que envuelve a una imagen,
+y un div que contiene un h1 y un parrafo
 
 ```bash
-git clone https://github.com/Aletheios42/TodoList_Web
+ng generate component header --skip-tests
 ```
 
-- Cambiar a la version de inicio
-
-```bash
-git checkout <hash_commit>
-```
-
-- Instala las dependecias del proyecto.
-
-```npm
-npm install
-```
-
-- Inicia el server local
-
-```npm
-npm start
-```
+importa la clase a app.component.ts y el selector al html
 
 ## VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![SetUp Layout](./htmlOutput.png)
+  ![Header Layout](./htmlOutput.png)
