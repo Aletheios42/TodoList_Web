@@ -1,22 +1,29 @@
-# **Commit: User_I**
+# **Commit: User_II**
 
-## Objetivo: Crea un componente User
+## Objetivo: Mostrar información dínamica en user
 
-copia los archivos:
+importa dummy-user en user
+crea una propiedad selectedUser que sea igual azarosamente,
+a uno de los usuarios del array importado
+pista:
 
-- user.component.css
-- app.component.css
-
-crea un componente que consista en:
-un div que envuelve un boton que contiene una imagen y un span
-
-```bash
-ng generate component header --skip-tests
+```ts
+const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 ```
 
-importa la clase a app.component.ts y el selector al html
+Añade en el user.component.html:
+
+- en el span, añade el nombre del usuario seleccionado por string interpolation
+- en la imagen , haz property binding a la ruta.
+  pista: "'string_literal' + string_var"
+
+haz que la etiqueta de app-user este envuelta con una etiqueta main
+crea una lista con el atributo id="users"
+y envuelve app-user en el elemento lista
 
 ## VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![User_I_Layout](./htmlOutput.png)
+  ![User_II_Layout](./htmlOutput.png)
+  cada vez que recargas la pagina deberia aparecer un
+  user aleatorio.
