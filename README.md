@@ -1,16 +1,23 @@
-# **Commit: User_III**
+# **Commit: Signlas I**
 
-## Objetivo: Actualizar el estado de mi pagina escuchando eventos
+## Objetivo: Cambiar el estado a traves de señales
 
-crea un getter que devuelva la ruta de la imagen
-cambia el renderizado de la imagen, ahora \[src\] se asigna al getter imagePath
+echale un ojo: https://angular.dev/guide/signals
 
-crea un método onSubmit() que cambie el usuario **azarosamente**
-y escriba por la consola "clicked"
-añade el evento click al botón y asignalo al nuevo metodo
+- Importa la clase signals,
+- Trasforma la propiedad selectedUser en una señal
+- En el metodo onSelecUser() utiliza set, para asignar el nuevo valor aleatorio
+- el metodo imagePath, sera una funcion computed para actualizar la imagen
+  pista: imagePath = computed(() => 'assest/users/' + this.selectedUser().avatar);
+- Recuerda, selectedUser ahota es una señal para leerla como un string usa "()"
+
+El resto del proyecto no se hará con señales asi que para el siguiente commit,
+no se tenfra encuenta esta nueva actualizacion.
+
+El alumno deberá volver a dejar el proyecto como esta en el commit User_III
 
 ## VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![User_III_Layout](./htmlOutput.png)
+  ![Signals_I](./htmlOutput.png)
   cada vez que clickas en el usuario deberia cambiar aleatoriamente
