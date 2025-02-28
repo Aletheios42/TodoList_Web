@@ -1,17 +1,14 @@
-# **Commit: Header**
+# **Commit: User_I**
 
-## Objetivo: Crea un componente Header
+## Objetivo: Crea un componente User
 
 copia los archivos:
 
-- header.component.css
-- styles.css
-- index.html
-- task-managment-logo.png
+- user.component.css
+- app.component.css
 
-crea un header que consista en:
-una etiqueta header que envuelve a una imagen,
-y un div que contiene un h1 y un parrafo
+crea un componente que consista en:
+un div que envuelve un boton que contiene una imagen y un span
 
 ```bash
 ng generate component header --skip-tests
@@ -22,4 +19,4 @@ importa la clase a app.component.ts y el selector al html
 ## VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Header Layout](./htmlOutput.png)
+  ![User_I_Layout](./htmlOutput.png)
