@@ -1,15 +1,16 @@
-# **Commit: trabajando con objetos**
+# **Commit: trabajando con type alias**
 
-## Objetivo: Sintetizar el codigo
+nota. https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript/52682220#52682220
 
-- modifica los inputs de user.component.ts por:
-  @Input({ required: true }) user!: {
-  id: string;
-  name: string;
-  avatar: string;
-  };
-  y ajusta, los metodos de la clase, para acceder correctamente avatar, id y name(html)
-- en app.component, modifica los binding, ahora solo <app-user[user]="users[i]"> en los 6
+## Objetivo: Sintetizar el codigo con type alias
+
+para evitar definir el objeto en linea se usa type <nombre del tipo>
+type User = {
+id: string;
+name: string;
+avatar: string;
+};
+añade esto en tu user.component.ts y da el tipo User a user
 
 ## VISUALIZACION
 
