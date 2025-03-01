@@ -1,14 +1,24 @@
-# **Commit: Eventos Personalizados con señales**
+# **Commit: Tasks SetUp **
 
 ## Objetivo: Enseñar el componente de las tareas cuando se clicke en un user
 
-- Sustituye la linea de @Output por: select = output<string>() e importalo;
-- Vuelve a dejarlo como estaba para el siguiente commit
+en App.component.ts:
 
-la pagina no deberia haber cambiado nada
+- cambia el nombre de onSelectTask por onSelectUser
+- crea la propiedad selectedUserId = 'u1'; (para inicializar, relacionado con "!" del find)
+- cambia el metodo onSelectTask para que simplemente asigne el id recibido, a la nueva
+  propiedad
+- añade un nuevo metodo:
+  get selectedUser() {
+  return this.users.find((user) => this.selectedUserId === user.id)!;
+  }
+- crea un componente llamado tasks
+- añade <app-tasks [name]="selectedUser"> en app.component.html dentro del <main>, abajo del todo
+- Construye un componente llamado task Que reciba como Input() una propiedad name
+- muestra en tasks.component.html name con string interpolation
 
 ## VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Output_Eventos con señales](./htmlOutput.png)
-  al abrir la consola de desarrollo y clickar en los usuarios deberia salir el id
+  ![Tasks_SetUp](./htmlOutput.png)
+  cada vez que pulsas en un usuario deberias ver como cambia el nombre
