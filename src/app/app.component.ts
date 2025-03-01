@@ -12,4 +12,8 @@ import { DUMMY_USERS } from './dummy-users';
 })
 export class AppComponent {
   users = DUMMY_USERS;
+
+  onSelectShowTask(id: string) {
+    console.log('Selected User with Id: ' + id);
+  }
 }
