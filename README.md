@@ -1,11 +1,11 @@
-# **Commit: trabajando con type alias**
+# **Commit: trabajando con type interfaces**
 
 nota. https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript/52682220#52682220
 
-## Objetivo: Sintetizar el codigo con type alias
+## Objetivo: Sintetizar el codigo con interfaces
 
-para evitar definir el objeto en linea se usa type <nombre del tipo>
-type User = {
+sustituye type por interface
+interface User {
 id: string;
 name: string;
 avatar: string;
