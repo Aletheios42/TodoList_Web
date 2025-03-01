@@ -1,22 +1,20 @@
-# **Commit: renderizado dinamico deprecated **
+# **Commit: Task I: Creación**
 
-## Objetivo: Sintetizar el codigo con control de flujo de angular ngFor ngIf ngElse
+## Objetivo: Crear el componente task
 
-https://v17.angular.io/api/common/NgFor
-https://v17.angular.io/api/common/NgIf
+- copia el tasks.component.css y tasks.component.html
+- crea el componente "task" dentro de "tasks"
 
-### Renderizado dínamico y condicional
+```ts
+ng g c tasks/task --skip-tests
+```
 
-importa en app.component.ts NgFor, NgIf
-sustituye @For @If @else por esta nomeclatura antigua
-si selectedUser.name te da problemas "!" es tu amigo
+- copia tasks/task.component.css
+
+- importa la clase y añade 2 <app-task /> entre <li></li> en tasks.component.html
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![dinamic_render](./htmlOutput.png)
-  deberias verlo exactamente igual que antes
-
-### Fallback
-
-dejalo todo como antes, con el control de flujo moderno "@"
+  ![Task I: Creacion](./htmlOutput.png)
+  Deberias ver las 2 tareas desplegadas cuando seleccionas un usuario
