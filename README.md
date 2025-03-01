@@ -1,21 +1,16 @@
-# **Commit: Tasks SetUp **
+# **Commit: Mejorando el typescript**
 
-## Objetivo: Enseñar el componente de las tareas cuando se clicke en un user
+## Objetivo: Mejorar detalles en el codigo
 
-en App.component.ts:
+- añade el tipo al evento @Output() select = new EventEmitter<string>();
+- Quita "!" del find permitiendo que de valores undefined,
+  pero soportando no encontrar usuario. (flexibilidad para futuro update)
+- cambia en name! de tasks por name?, para aceptar este comportamiento del find
+- cambia el [name]="selectedUser ? selectedUser.name : "" "
+  ya que name? tiene 2 posibles tipos string o undefined,
+  el ternario comprueba y selecciona la opcion adecuada
 
-- cambia el nombre de onSelectTask por onSelectUser
-- crea la propiedad selectedUserId = 'u1'; (para inicializar, relacionado con "!" del find)
-- cambia el metodo onSelectTask para que simplemente asigne el id recibido, a la nueva
-  propiedad
-- añade un nuevo metodo:
-  get selectedUser() {
-  return this.users.find((user) => this.selectedUserId === user.id)!;
-  }
-- crea un componente llamado tasks
-- añade <app-tasks [name]="selectedUser"> en app.component.html dentro del <main>, abajo del todo
-- Construye un componente llamado task Que reciba como Input() una propiedad name
-- muestra en tasks.component.html name con string interpolation
+  nota "?" es quivaliten a pone ": string | undefined" en el tipo union
 
 ## VISUALIZACION
 
