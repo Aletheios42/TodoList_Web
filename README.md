@@ -1,52 +1,22 @@
-# **Commit: renderizado dinamico **
+# **Commit: renderizado dinamico deprecated **
 
-## Objetivo: Sintetizar el codigo con control de flujo de angular @for @if @else
+## Objetivo: Sintetizar el codigo con control de flujo de angular ngFor ngIf ngElse
 
-### Renderizado dínamico
+https://v17.angular.io/api/common/NgFor
+https://v17.angular.io/api/common/NgIf
 
-https://angular.dev/api/core/@for
+### Renderizado dínamico y condicional
 
-- en app.component.html podemos hacer un bucle para renderizar los <li></li>
-  en vez de repitir 6 veces el mismo trozo de codigo
-  track necesita identificadores unicos, en nuestro proyecto,nuestro id es perfecto
-
-```ts
-@for (user of "users"; track user.id){
-<li>
-<app-user [user]="user" (select)="onSelectUser($event)"/>
-</li>
-}
-```
-
-- en la clase de AppComponent, cambia la linea de selectedUserId por:
-
-```ts
-selectedUserId?: string;
-```
-
-para agregar la funcionalidad de que, pueda **o no** estar selecionado
-
-### VISUALIZACION
-
-- Abre localhost:4200 en el navegador deberias ver:
-  inspeciona task, y veras que renderiza pero no enseña codigo
-
-### Renderizado Condicional
-
-https://angular.dev/api/core/@if
-
-asi que cambia el ternario por:
-
-```ts
-  @if (selectedUser) {
-    <app-tasks [name]="selectedUser.name"></app-tasks>
-  } @else {
-    <p id="fallback">Select User to see their Tasks!</p>
-  }
-```
+importa en app.component.ts NgFor, NgIf
+sustituye @For @If @else por esta nomeclatura antigua
+si selectedUser.name te da problemas "!" es tu amigo
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
   ![dinamic_render](./htmlOutput.png)
-  y si seleccionas cualquier user, veras su nombre en vez de el mensaje
+  deberias verlo exactamente igual que antes
+
+### Fallback
+
+dejalo todo como antes, con el control de flujo moderno "@"
