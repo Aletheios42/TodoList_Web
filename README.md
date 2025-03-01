@@ -1,16 +1,15 @@
-# **Commit: Mejorando el typescript**
+# **Commit: trabajando con objetos**
 
-## Objetivo: Mejorar detalles en el codigo
+## Objetivo: Sintetizar el codigo
 
-- añade el tipo al evento @Output() select = new EventEmitter<string>();
-- Quita "!" del find permitiendo que de valores undefined,
-  pero soportando no encontrar usuario. (flexibilidad para futuro update)
-- cambia en name! de tasks por name?, para aceptar este comportamiento del find
-- cambia el [name]="selectedUser ? selectedUser.name : "" "
-  ya que name? tiene 2 posibles tipos string o undefined,
-  el ternario comprueba y selecciona la opcion adecuada
-
-  nota "?" es quivaliten a pone ": string | undefined" en el tipo union
+- modifica los inputs de user.component.ts por:
+  @Input({ required: true }) user!: {
+  id: string;
+  name: string;
+  avatar: string;
+  };
+  y ajusta, los metodos de la clase, para acceder correctamente avatar, id y name(html)
+- en app.component, modifica los binding, ahora solo <app-user[user]="users[i]"> en los 6
 
 ## VISUALIZACION
 
