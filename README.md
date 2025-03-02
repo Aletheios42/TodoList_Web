@@ -1,20 +1,35 @@
-# **Commit: Task I: Creación**
+# **Commit: Task II: Desarrollo**
 
-## Objetivo: Crear el componente task
+## Objetivo: desarrollar el componente task
 
-- copia el tasks.component.css y tasks.component.html
-- crea el componente "task" dentro de "tasks"
+- Copia el array tasks de tasks.component.ts
+
+- Añade al html article que envuelve a un h2, time, p,
+  p class="actions" que envuelve nu boton cuyo contenido es "Complete"
+
+- En tasks.component.html enseña <app-task> en un bucle @for
+
+- En tasks.component recibe la propiedad userId, exactamente igual que hicimos con name.
+  es decir pon el decorador en tasks.component y en app.component bindeas
+
+- ahora vamos a crear getter selectedUserTasks() que compare el userId recibido
+  y el del objeto tarea para enseñar las tareas del usuario
+  y no simplemente todas en cada usuario.
+  pista: ".filter(()=>)" https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+-cambia "tasks" por el getter recien creado
 
 ```ts
-ng g c tasks/task --skip-tests
+@for (task of selectedUserTasks; track task.id) {
+      <li>
+        <app-task />
+      </li>
+    }
 ```
-
-- copia tasks/task.component.css
-
-- importa la clase y añade 2 <app-task /> entre <li></li> en tasks.component.html
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Task I: Creacion](./htmlOutput.png)
-  Deberias ver las 2 tareas desplegadas cuando seleccionas un usuario
+  ![ejemplo1](./htmlOutput1.png)
+  ![ejemplo2](./htmlOutput2.png)
+  Deberias ver que los usuarios tienen distinto numero de tareas
