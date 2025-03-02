@@ -1,23 +1,23 @@
-# **Commit: Task III: Mostrar data**
+# **Commit: Modelos y Css binding**
 
-## Objetivo: Conectar los datos del array task con el componente task
+## Objetivo: migrar interfazces a model, y css binding
 
-en task.component.ts
+- corta la interfaz user, y pegala een un nuevo archivo llamado,
+  user.model.ts recuerda poner export a la interfaz, importala en user.component.ts
+- haz lo mismo con la interfaz Task
+  pista: puedes añadir "type" al import
 
-- define una interfaz Task.
-  interface Task {
-  id: string;
-  userId: string;
-  title: string;
-  summary: string;
-  dueDate: string;
-  }
-- recibe task: Task con @Input() y bindealo en el html de tasks, {required: true}
-- haz string interpolation en el template html de task para enseñar:
-  task.title, task.summary, task.dueDate
+- añade un propiedad Input en user.component.ts, de tipo booleano llamado "selected"
+- bindeala en app.component.html [selected]="user.id == selectedUserId"
+
+- añade este atributo al boton de user.component.html
+  [class.active]="selected"
+
+- añade a <app-user/> el binding de selected app.component.html
+  [selected]="user.id == selectedUserId"
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Tareas por usuario](./htmlOutput.png)
-  Deberias ver que los usuarios tienen sus tareas personalizadas asociadas
+  ![hover activo](./htmlOutput.png)
+  deberias ver como se queda seleccionado un usuario al pinchar
