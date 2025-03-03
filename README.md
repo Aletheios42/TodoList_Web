@@ -1,12 +1,22 @@
-# **Commit: Reconectando el boton de complete**
+# **Commit: Local Storage**
 
-## Objetivo: Formatea la fecha y crea un servicio
+## Objetivo: Guardar el array task del servicio en forma de JSON
 
-ve a task.component.ts
+- copia este constructor:
 
-- injecta el servicio e importalo
-- cambia el metodo onCompleteTask(id: string) para que use remove.task del servicio
-- borra el @Output(), y su binding de tasks.component.html pues el servicio se encarga
+```ts
+constructor() {
+const tasks = localstorage.getItem('tasks');
+
+if (task) {
+this.tasks = JSON.parse(tasks);
+}
+```
+
+- crea un metodo llamado saveTask() {
+  localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+  y añadelo a los metodos add y remove
 
 ### VISUALIZACION
 
