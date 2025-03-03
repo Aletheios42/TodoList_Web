@@ -1,29 +1,56 @@
-# **Commit: New-Task V: Añadir las tareas**
+# **Commit: ng-content**
 
-cambia "userId?" por una "!" para evitar problemas de tipos
+Las tareas no tienen un estilo adecuado
 
-## Objetivo: Exportar los datos del formulario a las tareas para renderizado automatico
+## Objetivo: Inyectar estilos en otros componentes
 
-- Exporta una interfaz "NewTaskData" que contenga los 3 strings
-  en un nuevo archivo new-task.models.ts
+crea un componente compartido
 
-- Emite un nuevo evento, crea un evento "add" con el decorador correspondiente
-  Crea un metodo onSubmit() que emita el objeto y bindealo al formulario asi
+```bash
+ng g c shared/card --skip-tests
+```
 
-  ```ts
-    <form (ngSubmit)="onSubmit()">
-  ```
+- Mueve este selector del componete user a card.component.css
 
-  https://angular.dev/api/forms/NgForm
+```css
+div {
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+```
 
-- En tasks.component bindea el evento "add" recuerda $event a un nuevo metodo
-  "onAddTask(taskData: NewTaskData)" que use .push() para añadir la taskData al array
-  y asigne isAddingTask a false
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
-  nota: mirar tambien el metodo .unshift
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+- en user.component.html cambia <div></div> por
+  <app-card></app-card>
 
-### VISUALIZACION
+### VISUALIZACION I
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![NuevaTarea](./htmlOutput.gif)
+  ![Proyeccion_de_estilos](./htmlOutput.png)
+  por defecto esta tecnica sustituye el html.
+
+- Copia en card.component.html
+
+```html
+<div>
+  <ng-content>
+  card works!
+</div>
+```
+
+### VISUALIZACION II
+
+- Abre localhost:4200 en el navegador deberias ver:
+  ![Proyeccion_de_estilos](./htmlOutput2.png)
+  si queremos combinar ambos tenemos que usar <ng-content/>
+
+- elimina la linea de card works!
+- y cambia el <article> por <app-card> en task.component.html
+
+### VISUALIZACION III
+
+- Abre localhost:4200 en el navegador deberias ver:
+  ![ng-content_Final_Dislay](./htmlOutput3.png)
+
+fijate la hoja de tareas tiene las esquinas redondas, hemos "proyectado" el estilo
+de users en users y en task , gracias a la técnica de <ng-content>
