@@ -1,22 +1,28 @@
-# **Commit: New-Task II: Boton Cancelar**
+# **Commit: New-Task III: 2way-binding**
 
-## Objetivo: Hacer funcional el botton cancel y el background
+https://angular.dev/api/forms/NgModel
+2way-binding consiste en actualizar el renderizado
+conforme te introducen datos dinamicamente
+es la union de property y event binding
 
-- Añade un metodo onCancelAddTask() que setee
-  isAddingTask a false
+## Objetivo: Exportar los datos del <form/> New-task a
 
-- Añade eventos on click en new-task, en el botton cancel y
-  en en div de clase backdrop
+- Importa FormsModule en new task, esto nos data acceso a ngModel
 
-- En new-task.component.ts crea un evento<void> de salida llamado cancel
-  y metodo onCancel() que lo emita
+- Crea una propiedad vacia, "enteredTitle"
 
-- Bindea el evento al metodo "onCancelAddTask"
+- En el html, en el <p/> de titulo añade este atributo
+
+```ts
+[ngModel] = "enteredTitle";
+```
+
+- Duplica el <p/> y cambia title por title2, para identificarlo mejor
+  dejando intacto es 2waybinding
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![El Fondo y el boton cancel, son dinamicos](./htmlOutput.png)
-  Debería verse igual que antes pero cuando pulsas el boton cancel
-  del formulario o pinchas en la pantalla fuera del formulario,
-  este se debería cerrar
+  ![Gif_Mostrando_Sincronización](./htmlOutput.gif)
+  si tu ngModel funciona deberias poder replicar en vivo el mensaje
+  en el parrafo copiado
