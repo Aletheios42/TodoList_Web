@@ -1,25 +1,22 @@
-# **Commit: New-Task I: Añadir Tareas**
+# **Commit: New-Task II: Boton Cancelar**
 
-## Objetivo: Hacer funcional el botton add task desplegando un formulario New-Task
+## Objetivo: Hacer funcional el botton cancel y el background
 
-- Crea un nuevo componente New-Task dentro de Task
+- Añade un metodo onCancelAddTask() que setee
+  isAddingTask a false
 
-```ts
-ng g c task/new-task --skip-tests
-```
+- Añade eventos on click en new-task, en el botton cancel y
+  en en div de clase backdrop
 
-y copia el html y el css en el nuevo componente e importalo a tasks
+- En new-task.component.ts crea un evento<void> de salida llamado cancel
+  y metodo onCancel() que lo emita
 
-En el componente Task:
-
-- Añade un evento click al boton Add Task en tasks.component.html
-- Crea una nueva propiedad isAddingTask y asignalo a false
-- Añade un nuevo metodo onStartAddTask() que asigne isAddingTask a true
-- Utiliza el boleano para renderizar el nuevo componente o el resto del template
+- Bindea el evento al metodo "onCancelAddTask"
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Formulario de new-task](./htmlOutput.png)
-  al hacer click en el boton addtask deberás verlo así,
-  pero para salir del formulario tendrás que recargar la página
+  ![El Fondo y el boton cancel, son dinamicos](./htmlOutput.png)
+  Debería verse igual que antes pero cuando pulsas el boton cancel
+  del formulario o pinchas en la pantalla fuera del formulario,
+  este se debería cerrar
