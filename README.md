@@ -1,56 +1,58 @@
-# **Commit: ng-content**
+# **Commit: Pipelines , servicios y dependency injection**
 
-Las tareas no tienen un estilo adecuado
+https://angular.dev/guide/templates/pipes
 
-## Objetivo: Inyectar estilos en otros componentes
+## Objetivo: Formatea la fecha y crea un servicio
 
-crea un componente compartido
+- usa la pipe date en task.component.html,
+  recuerda importarla
+
+- crea un servicio
 
 ```bash
-ng g c shared/card --skip-tests
+ng g s tasks/tasks --skip-tests
 ```
 
-- Mueve este selector del componete user a card.component.css
+crea una propiedad y 3 metodos en el sevicio:
 
-```css
-div {
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
+recuerda limpiar $event en el html y el input de los metodos
+
+- corta el array tasks de tasks.component.ts y pegalo en la clase del servicio
+- "getUserTasks(userId:string)" que ejecuta la logica de get selectedUserTasks()
+- "addTask(taskdata: NewTaskData, userId: string)" que ejecuta la logica de onAddTask()
+- "removeTask(id: string) que ejecuta la logica de onDeletingTask()
+
+- importa el servicio en tasks.component.ts asi:
+
+```ts
+constructor(private tasksService: TaskService) {}
 ```
 
-- en user.component.html cambia <div></div> por
-  <app-card></app-card>
+al poner el tipo, angular sabe qué servicio ha de ser instanciado
 
-### VISUALIZACION I
+ahora ya estamos en posicion de injectar nuestro servicio en new-task.component.ts
 
-- Abre localhost:4200 en el navegador deberias ver:
-  ![Proyeccion_de_estilos](./htmlOutput.png)
-  por defecto esta tecnica sustituye el html.
-
-- Copia en card.component.html
-
-```html
-<div>
-  <ng-content>
-  card works!
-</div>
+```ts
+private taskServiece = inject(TaskService);
 ```
 
-### VISUALIZACION II
+nota: no usamos new, por lo que si es la misma instancia
+
+- en new-task Cambia el metodo onSumbit para que use .addTask() de nuestro servicio
+  emite al final el evento close(mirar 2 tareas mas abajo)
+
+```ts
+@Input({required: true}) userId: string
+```
+
+y invocalo en el selector de task.component.html con property binding
+
+- podemos borrar el evento add, y su binding ya no lo necesitamos con este enfoque
+- Vamos a renombrar cancel por close, ya que se seguira encargando de cerrar
+  el dialog cuando pulsemos el fondo
+
+### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Proyeccion_de_estilos](./htmlOutput2.png)
-  si queremos combinar ambos tenemos que usar <ng-content/>
-
-- elimina la linea de card works!
-- y cambia el <article> por <app-card> en task.component.html
-
-### VISUALIZACION III
-
-- Abre localhost:4200 en el navegador deberias ver:
-  ![ng-content_Final_Dislay](./htmlOutput3.png)
-
-fijate la hoja de tareas tiene las esquinas redondas, hemos "proyectado" el estilo
-de users en users y en task , gracias a la técnica de <ng-content>
+  ![Service y pipeline](./htmlOutput.gif)
+  fijate como ha cambiado el formato de la fecha
