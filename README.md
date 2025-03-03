@@ -1,25 +1,21 @@
-# **Commit: Local Storage**
+# Proyecto Angular - Lista de Tareas
 
-## Objetivo: Guardar el array task del servicio en forma de JSON
+Este proyecto es una aplicación didáctica desarrollada para practicar Angular. La aplicación permite añadir y quitar tareas, y ha sido construida siguiendo un enfoque instructivo: cada commit contiene instrucciones y explicaciones detalladas para facilitar el aprendizaje de Angular a los estudiantes.
 
-- copia este constructor:
+## Características
 
-```ts
-constructor() {
-const tasks = localstorage.getItem('tasks');
+- **Agregar tareas:** Permite la creación de nuevas tareas.
+- **Eliminar tareas:** Permite eliminar tareas existentes.
+- **Desarrollo didáctico:** Cada commit documenta el proceso de desarrollo, ofreciendo una guía paso a paso para comprender la construcción de la aplicación.
 
-if (task) {
-this.tasks = JSON.parse(tasks);
-}
-```
+## Requisitos
 
-- crea un metodo llamado saveTask() {
-  localStorage.setItem('tasks', JSON.stringify(this.tasks));
-  }
-  y añadelo a los metodos add y remove
+- [Node.js](https://nodejs.org/) (se recomienda usar la versión LTS)
+- [Angular CLI](https://angular.io/cli)
 
-### VISUALIZACION
+## Instalación
 
-- Abre localhost:4200 en el navegador deberias ver:
-  ![complete_button](./htmlOutput.gif)
-  deberias poder completar tareas
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://tu-repositorio.git
+   ```
