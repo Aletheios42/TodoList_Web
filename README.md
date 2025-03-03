@@ -1,21 +1,25 @@
-# **Commit: Task IV: Eliminar tareas completadas**
+# **Commit: New-Task I: Añadir Tareas**
 
-## Objetivo: la funcionalidad al boton complete para quitar una tarea
+## Objetivo: Hacer funcional el botton add task desplegando un formulario New-Task
 
-- Añade un evento onclick en el boton de task.component.html
+- Crea un nuevo componente New-Task dentro de Task
 
-- Añade un decorador de salida para emitirle a tasks el "id" de una tarea que
-  mas adelante borraremos del array tasks[] en tasks.component.ts
+```ts
+ng g c task/new-task --skip-tests
+```
 
-- Añade un metodo onCompleteTask() en la clase que emita el id de la tarea
-  y bindealo al evento onclick previamente creado
+y copia el html y el css en el nuevo componente e importalo a tasks
 
-- Crea un metodo onDeleting(id: string) que reasingne tasks a una version de si mismo
-  con el metodo filter, para discriminar el id recibido y usa event biding en
-  tasks.component.html para capturar el id con "$event"
+En el componente Task:
+
+- Añade un evento click al boton Add Task en tasks.component.html
+- Crea una nueva propiedad isAddingTask y asignalo a false
+- Añade un nuevo metodo onStartAddTask() que asigne isAddingTask a true
+- Utiliza el boleano para renderizar el nuevo componente o el resto del template
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![complete boton](./htmlOutput.png)
-  Al pulsar complete deberías ver como desaparece la tarea
+  ![Formulario de new-task](./htmlOutput.png)
+  al hacer click en el boton addtask deberás verlo así,
+  pero para salir del formulario tendrás que recargar la página
