@@ -1,23 +1,21 @@
-# **Commit: Modelos y Css binding**
+# **Commit: Task IV: Eliminar tareas completadas**
 
-## Objetivo: migrar interfazces a model, y css binding
+## Objetivo: la funcionalidad al boton complete para quitar una tarea
 
-- corta la interfaz user, y pegala een un nuevo archivo llamado,
-  user.model.ts recuerda poner export a la interfaz, importala en user.component.ts
-- haz lo mismo con la interfaz Task
-  pista: puedes añadir "type" al import
+- Añade un evento onclick en el boton de task.component.html
 
-- añade un propiedad Input en user.component.ts, de tipo booleano llamado "selected"
-- bindeala en app.component.html [selected]="user.id == selectedUserId"
+- Añade un decorador de salida para emitirle a tasks el "id" de una tarea que
+  mas adelante borraremos del array tasks[] en tasks.component.ts
 
-- añade este atributo al boton de user.component.html
-  [class.active]="selected"
+- Añade un metodo onCompleteTask() en la clase que emita el id de la tarea
+  y bindealo al evento onclick previamente creado
 
-- añade a <app-user/> el binding de selected app.component.html
-  [selected]="user.id == selectedUserId"
+- Crea un metodo onDeleting(id: string) que reasingne tasks a una version de si mismo
+  con el metodo filter, para discriminar el id recibido y usa event biding en
+  tasks.component.html para capturar el id con "$event"
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![hover activo](./htmlOutput.png)
-  deberias ver como se queda seleccionado un usuario al pinchar
+  ![complete boton](./htmlOutput.png)
+  Al pulsar complete deberías ver como desaparece la tarea
