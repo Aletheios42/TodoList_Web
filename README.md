@@ -1,27 +1,29 @@
-# **Commit: New-Task IV: señales y 2way-binding**
+# **Commit: New-Task V: Añadir las tareas**
 
-## Objetivo: trasnformar las propiedades strings a señales
+cambia "userId?" por una "!" para evitar problemas de tipos
 
-- Borra el parrafo duplicado
+## Objetivo: Exportar los datos del formulario a las tareas para renderizado automatico
 
-- trasforma enteredTitle en una señal
+- Exporta una interfaz "NewTaskData" que contenga los 3 strings
+  en un nuevo archivo new-task.models.ts
 
-```ts
-enteredTitile = signal("");
-```
+- Emite un nuevo evento, crea un evento "add" con el decorador correspondiente
+  Crea un metodo onSubmit() que emita el objeto y bindealo al formulario asi
 
-- Fijate que no hace falta leer la señal
+  ```ts
+    <form (ngSubmit)="onSubmit()">
+  ```
 
-```ts
-/*Seria un error, no hay que leer la señal,
-simplemente dejarlo sin partentesis*/
-[ngModel] = "enteredTitile()";
-```
+  https://angular.dev/api/forms/NgForm
 
-- Añade las señales: enteredSummary y enteredDate y bindealas
-  con [(ngModel)] en los inputs de sus parrafos correspondientes del html
+- En tasks.component bindea el evento "add" recuerda $event a un nuevo metodo
+  "onAddTask(taskData: NewTaskData)" que use .push() para añadir la taskData al array
+  y asigne isAddingTask a false
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+  nota: mirar tambien el metodo .unshift
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Display](./htmlOutput.png)
+  ![NuevaTarea](./htmlOutput.gif)
