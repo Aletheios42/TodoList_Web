@@ -1,28 +1,27 @@
-# **Commit: New-Task III: 2way-binding**
+# **Commit: New-Task IV: señales y 2way-binding**
 
-https://angular.dev/api/forms/NgModel
-2way-binding consiste en actualizar el renderizado
-conforme te introducen datos dinamicamente
-es la union de property y event binding
+## Objetivo: trasnformar las propiedades strings a señales
 
-## Objetivo: Exportar los datos del <form/> New-task a
+- Borra el parrafo duplicado
 
-- Importa FormsModule en new task, esto nos data acceso a ngModel
-
-- Crea una propiedad vacia, "enteredTitle"
-
-- En el html, en el <p/> de titulo añade este atributo
+- trasforma enteredTitle en una señal
 
 ```ts
-[ngModel] = "enteredTitle";
+enteredTitile = signal("");
 ```
 
-- Duplica el <p/> y cambia title por title2, para identificarlo mejor
-  dejando intacto es 2waybinding
+- Fijate que no hace falta leer la señal
+
+```ts
+/*Seria un error, no hay que leer la señal,
+simplemente dejarlo sin partentesis*/
+[ngModel] = "enteredTitile()";
+```
+
+- Añade las señales: enteredSummary y enteredDate y bindealas
+  con [(ngModel)] en los inputs de sus parrafos correspondientes del html
 
 ### VISUALIZACION
 
 - Abre localhost:4200 en el navegador deberias ver:
-  ![Gif_Mostrando_Sincronización](./htmlOutput.gif)
-  si tu ngModel funciona deberias poder replicar en vivo el mensaje
-  en el parrafo copiado
+  ![Display](./htmlOutput.png)
